@@ -88,5 +88,6 @@
   }
   #graph-container {
     height: 80vh;
+    border: solid 2px #9b67df;
   }
 </style>
