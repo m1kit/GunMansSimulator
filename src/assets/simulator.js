@@ -31,7 +31,7 @@ export class GameOption {
 export class GameState {
     constructor(option, step, status) {
         this.option = option;
-        this.step = step;
+        this.step = Math.min(step, option.maxStep);
         this.player = this.step % this.option.players;
         this.status = status;
         this.alive = 0;
@@ -43,8 +43,9 @@ export class GameState {
                 hash++;
             }
         }
+
         this.id = `${this.step}:${hash}:${Math.random().toString(36).slice(-8)}`;
-        this.type = option.maxStep === step || this.alive === 1 ? 'result' : 'step';
+        this.type = option.maxStep === this.step || this.alive === 1 ? 'result' : 'step';
 
     }
 
@@ -57,16 +58,17 @@ export class GameState {
             nodes.push({
                 id: this.id,
                 label: `${formatGain(this.gain)}\n${formatStatus(this.status)}`,
-                group: this.player,
+                group: -1,
                 level: this.step * 2,
             });
             return;
         }
 
+        let nextStep = this.step + 1;
+        while (!this.status[nextStep % this.option.players]) nextStep++;
 
         const choices = [];
-
-        const fail = new GameState(this.option, this.step + 1, this.status);
+        const fail = new GameState(this.option, nextStep, this.status);
         fail.build(nodes, edges);
         const toFailEdge = {
             from: this.id,
@@ -99,7 +101,9 @@ export class GameState {
 
             const newStatus = this.status.concat();
             newStatus[i] = false;
-            const success = new GameState(this.option, this.step + 1, newStatus);
+            let nextStepAlive = nextStep;
+            while (!newStatus[nextStepAlive % this.option.players]) nextStepAlive++;
+            const success = new GameState(this.option, nextStepAlive, newStatus);
             success.build(nodes, edges);
             edges.push({
                 from: detNodeID,
@@ -121,7 +125,7 @@ export class GameState {
             nodes.push({
                 id: detNodeID,
                 label: formatGain(newGain),
-                group: -1,
+                group: -2,
                 level: this.step * 2 + 1,
             });
         }
