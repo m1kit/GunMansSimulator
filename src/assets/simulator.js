@@ -24,6 +24,12 @@ export class GameOption {
     constructor(players, maxStep, rate) {
         this.players = players;
         this.maxStep = maxStep;
+        if (maxStep === rate.length) {
+            this.rate = rate;
+        } else {
+            this.rate = new Array(maxStep);
+            for (let i = 0; i < maxStep; i++) this.rate[i] = rate[i % players];
+        }
         this.rate = rate;
     }
 }
@@ -46,7 +52,6 @@ export class GameState {
 
         this.id = `${this.step}:${hash}:${Math.random().toString(36).slice(-8)}`;
         this.type = option.maxStep === this.step || this.alive === 1 ? 'result' : 'step';
-
     }
 
     build(nodes, edges) {
@@ -84,7 +89,7 @@ export class GameState {
 
         for (let i = 0; i < this.option.players; i++) {
             if (i === this.step % this.option.players || !this.status[i]) continue;
-            const p = this.option.rate[this.player];
+            const p = this.option.rate[this.step];
             const detNodeID = `${this.id}:${i}`;
             const toDetEdge = {
                 from: this.id,
