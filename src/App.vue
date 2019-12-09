@@ -8,13 +8,13 @@
       </template>
 
       <template slot="end">
-        <!-- b-navbar-item tag="div">
+        <b-navbar-item tag="div">
           <div class="buttons">
-            <a class="button is-light">
-              View Source(currently unavailable)
+            <a class="button is-light" href="https://github.com/m1kit/GunMansSimulator" target="_blank">
+              View Source
             </a>
           </div>
-        </b-navbar-item-->
+        </b-navbar-item>
       </template>
     </b-navbar>
     <GunmansGameSimulator />
