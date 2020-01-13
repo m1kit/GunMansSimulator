@@ -56,7 +56,7 @@ export class GameState {
 
     build(nodes, edges) {
         if (this.type === 'result') {
-            this.gain = new Array(this.option.players)
+            this.gain = new Array(this.option.players);
             for (let i = 0; i < this.option.players; i++) {
                 this.gain[i] = this.status[i] ? 1.0 / this.alive : 0.0;
             }
@@ -89,7 +89,7 @@ export class GameState {
 
         for (let i = 0; i < this.option.players; i++) {
             if (i === this.step % this.option.players || !this.status[i]) continue;
-            const p = this.option.rate[this.step];
+            const p = this.option.rate[this.step % this.option.rate.length];
             const detNodeID = `${this.id}:${i}`;
             const toDetEdge = {
                 from: this.id,
