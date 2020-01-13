@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "buefy": "^0.8.6",
-    "core-js": "^3.3.2",
+    "core-js": "^3.6.3",
     "vis-network": "^6.1.2",
     "vue": "^2.6.10",
     "vue-material-design-icons": "^4.1.0"

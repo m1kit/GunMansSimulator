@@ -2027,9 +2027,9 @@ core-js-pure@^3.0.0:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.3.4.tgz#01d2842f552a866265dc77ededb2ccd668ff2879"
 
-core-js@^3.3.2:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.3.4.tgz#6b0a23392958317bfb46e40b090529a923add669"
+core-js@^3.3.2, core-js@^3.6.3:
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.3.tgz#cebda69dd069bf90066414d2b2425ffd1f3dcd79"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
