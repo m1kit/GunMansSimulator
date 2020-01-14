@@ -11,7 +11,7 @@
     "buefy": "^0.8.9",
     "core-js": "^3.6.2",
     "vis-network": "^6.1.2",
-    "vue": "^2.6.10",
+    "vue": "^2.6.11",
     "vue-material-design-icons": "^4.4.0"
   },
   "devDependencies": {
@@ -21,7 +21,7 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^6.1.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,
