@@ -868,9 +868,9 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@mdi/font@^4.9.95":
-  version "4.9.95"
-  resolved "https://registry.yarnpkg.com/@mdi/font/-/font-4.9.95.tgz#00ed2ffe289c9230f146e74559c07542d3f4475a"
+"@mdi/font@^5.2.45":
+  version "5.2.45"
+  resolved "https://registry.yarnpkg.com/@mdi/font/-/font-5.2.45.tgz#88d3d83954b7e9b88a9691567ae6c8b922cbab53"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
